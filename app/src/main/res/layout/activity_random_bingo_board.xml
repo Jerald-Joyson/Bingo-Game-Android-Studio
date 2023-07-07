@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".RandomBingoBoard">
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:numColumns="5"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"
+        android:background="@drawable/rounded_corner_fill"
+        android:padding="5dp"
+        tools:listitem="@layout/grid_item_layout" />
+
+    <LinearLayout
+        android:id="@+id/refreshBtnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="40dp"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/refresh_btn"
+            android:layout_width="1in"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/my_primary"
+            android:padding="14dp"
+            android:text="Refresh"
+            android:onClick="restartScreen"
+            android:textSize="20sp"
+            android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="1in"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/my_primary"
+            android:padding="14dp"
+            android:text="Save"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>
