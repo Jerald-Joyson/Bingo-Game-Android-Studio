@@ -16,6 +16,7 @@ import java.util.List;
 public class RandomBingoBoard extends AppCompatActivity {
     private static final int MATRIX_SIZE = 5;
     private ArrayAdapter<String> adapter;
+    List<String> matrixValues = generateNumbersList();
     Button saveBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +28,12 @@ public class RandomBingoBoard extends AppCompatActivity {
         adapter = new ArrayAdapter<>(
                 this,
                 R.layout.grid_item_layout,
-                generateNumbersList()
+                matrixValues
         );
         gridView.setAdapter(adapter);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> matrixValues = generateNumbersList();
-
                 Intent intent = new Intent(RandomBingoBoard.this, BingoBoard.class);
                 intent.putStringArrayListExtra("matrixValues", (ArrayList<String>) matrixValues);
                 startActivity(intent);

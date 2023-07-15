@@ -18,6 +18,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BingoBoard extends AppCompatActivity {
     private int[][] combinations = {
@@ -63,9 +64,11 @@ public class BingoBoard extends AppCompatActivity {
                 String item = adapter.getItem(position);
                 if (!clickedElements.contains(item)) {
                     clickedElements.add(item);
+
                     view.setBackgroundColor(Color.BLACK);
                     checkCombinations();
                 }
+                takeElementAtIndex(item);
             }
         });
         exitBtn.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +88,9 @@ public class BingoBoard extends AppCompatActivity {
             }
         });
     }
-
+    private void takeElementAtIndex(String item) {
+        Toast.makeText(getApplicationContext(), "Clicked element: " + item, Toast.LENGTH_SHORT).show();
+    }
 
     private void checkCombinations() {
         int count = 0;
